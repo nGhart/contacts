@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import Users from './Components/Contacts';
-import UserForm from './Components/ContactsForm';
+import Contacts from './Components/Contacts';
+import ContactsForm from './Components/ContactsForm';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
@@ -19,25 +19,25 @@ class App extends Component {
           location: 'Accra',
           id: '3454ght783ttt'
         },
-         {
-           name: 'Credo',
-           number: 201111112,
-           location: 'Tema',
-        
-        id: '3454ght783ttt'
-         },
-         {
-           name: 'Faisal',
-           number:201111113,
-           location: 'Teshie',           
+        {
+          name: 'Credo',
+          number: 201111112,
+          location: 'Tema',
+
+          id: '3454ght783ttt'
+        },
+        {
+          name: 'Faisal',
+          number: 201111113,
+          location: 'Teshie',
           id: '3454ght783t'
         },
-         {
-           name: 'Godwin',
+        {
+          name: 'Godwin',
           number: 201111114,
-           location: 'Osu',           
+          location: 'Osu',
           id: '3454t783ttt'
-         },
+        },
         //  {
         //    name: 'Jeffrey',
         //    number: 201111115,
@@ -67,29 +67,29 @@ class App extends Component {
         <Container fluid>
           <Row>
             <Col>
-            <Stack gap={2} className="col-md-10 mx-auto">
-              <Accordion>
-                <Accordion.Item eventKey="0">
-                  <Accordion.Header>Add Contact</Accordion.Header>
-                  <Accordion.Body>
-                    <div>
-                      <UserForm newUser={this.handleAddUser} />
-                    </div>
-                  </Accordion.Body>
-                </Accordion.Item>
-              </Accordion>
-            </Stack></Col>
+              <Stack gap={2} className="col-md-12 mx-auto">
+                <Accordion>
+                  <Accordion.Item eventKey="0">
+                    <Accordion.Header>Add Contact</Accordion.Header>
+                    <Accordion.Body>
+                      <div>
+                        <ContactsForm newContact={this.handleAddUser} />
+                      </div>
+                    </Accordion.Body>
+                  </Accordion.Item>
+                </Accordion>
+              </Stack></Col>
           </Row>
-       
+
           <div>
-            <Stack gap={2} className="col-md-10 mx-auto">
-              <Users items={this.state.items} deleteContact={this.deleteContact} />
+            <Stack gap={2} className="col-md-12 mx-auto">
+              <Contacts items={this.state.items} deleteContact={this.deleteContact} />
             </Stack>
           </div>
-          
+
         </Container>
-        </div>
-      
+      </div>
+
     );
   }
 }
