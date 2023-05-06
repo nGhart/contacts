@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 
-export default class UserForm
-    extends Component {
+export default class ContactsForm extends Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -19,54 +18,55 @@ export default class UserForm
         e.preventDefault();
         this.setState({ [e.target.name]: e.target.value });
     };
+
     handleSubmit = (e) => {
         e.preventDefault();
-        this.props.newUser(this.state);
+        this.props.newContact(this.state);
         this.setState({
             name: "",
             number: "",
             location: "",
         });
-        console.log(this.state.persons);
     };
+
     render() {
         return (
-            <div
-                className='signupForm '>
+            <div>
                 <form
-                className="to-do-form "
                     onSubmit={this.handleSubmit}>
-                    <div className="mb-3" >
+                    <div
+                        className="mb-3" >
                         <label>Name </label>
-                        <br/>
-                        <input type="text"
+                        <br />
+                        <input
+                            type="text"
                             name="name"
                             value={this.state.name}
-                            onChange={this.handleChange}
-                        />
+                            onChange={this.handleChange} />
                     </div>
-                    <div className="mb-3" >
+                    <div
+                        className="mb-3" >
                         <label>Phone Number </label>
-                        <br/>
-                        <input className='.to-do-input'
+                        <br />
+                        <input
+                            className='.to-do-input'
                             type="number"
                             name="number"
                             value={this.state.number}
-                            onChange={this.handleChange}
-                        />
+                            onChange={this.handleChange} />
                     </div>
-                    <div className="mb-3" >
+                    <div
+                        className="mb-3" >
                         <label>Location </label>
-                        <br/>
+                        <br />
                         <input
                             type="text"
                             name="location"
                             value={this.state.location}
-                            onChange={this.handleChange}
-                        />
+                            onChange={this.handleChange} />
                     </div>
                     <button>Submit</button>
-                </form> 
+                </form>
 
                 {this.state.persons.map((item, index) => {
                     return (
