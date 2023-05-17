@@ -12,7 +12,7 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      items: [
+      users: [
         {
           name: 'Bernard',
           number: 201111111,
@@ -23,8 +23,7 @@ class App extends Component {
           name: 'Credo',
           number: 201111112,
           location: 'Tema',
-
-          id: '3454ght783ttt'
+          id: '3454ght783tt89'
         },
         {
           name: 'Faisal',
@@ -38,29 +37,33 @@ class App extends Component {
           location: 'Osu',
           id: '3454t783ttt'
         },
-        //  {
-        //    name: 'Jeffrey',
-        //    number: 201111115,
-        //    location: 'La',
-        //    id: '54ght783ttt'
-        //  },
+        {
+          name: 'Jeffrey',
+          number: 201111115,
+          location: 'La',
+          id: '54ght783ttt'
+        },
       ]
-    };
+    }
   }
-  handleAddUser = (addNewUser) => {
-    addNewUser.id = Math.floor(Math.random() * 10000)
+  handleAddUser = (user) => {
+    user.id = Math.floor(Math.random() * 10000)
     this.setState({
-      items: [...this.state.items, addNewUser],
+      users: [...this.state.users, user],
     });
   }
 
-  deleteContact = id => {
-    const remainingContacts = this.state.items.filter((items) => items !== id)
+  deleteContact = (id) => {
+    let remainingContacts = this.state.users.filter((user) => user.id !== id)
     this.setState({
-      items: remainingContacts
+      users: remainingContacts
     })
   }
-
+  editContact = (id, newInfo) => {
+    this.setState({
+      users: this.state.users.map(user => (user.id === id) ? newInfo : user)
+    })
+  }
   render() {
     return (
       <div className='to-do-app'>
@@ -83,7 +86,7 @@ class App extends Component {
 
           <div>
             <Stack gap={2} className="col-md-12 mx-auto">
-              <Contacts items={this.state.items} deleteContact={this.deleteContact} />
+              <Contacts usersData={this.state.users} deleteContact={this.deleteContact} editContact={this.editContact} />
             </Stack>
           </div>
 
