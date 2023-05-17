@@ -3,15 +3,11 @@ import React, { Component } from 'react';
 export default class ContactsForm extends Component {
     constructor(props) {
         super(props);
-        this.state = {
-            persons: [
-                {
+        this.state ={
                     name: "",
                     number: "",
                     location: ""
-                },
-            ]
-        }
+        }    
     }
 
     handleChange = (e) => {
@@ -68,16 +64,9 @@ export default class ContactsForm extends Component {
                     <button>Submit</button>
                 </form>
 
-                {this.state.persons.map((item, index) => {
-                    return (
-                        <div
-                            key={index}>
-                        </div>
-                    )
-                })}
             </div>
         )
     }
+
+
 }
-
-
